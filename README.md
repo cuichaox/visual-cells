@@ -13,15 +13,16 @@ To display  the  alist : ((a . 1) (b . 2) (c . 3)) to the 'alist.pdf' and 'alist
   (visual-cells:fvs '((a . 1) (b . 2) (c . 3)) "test")
 ```
 The alist.png as floowing<br>
-![alist.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/alist.png "((a . 1) (b . 2) (c . 3))")
+![alist.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/alist.png)
 
 Call visual-cells in Slime
 ===
-Add following line to your common lisp startup script. (eg. ~/.sbclrc)
+Add following line to your common lisp startup script. (eg. ~/.sbclrc)<br>
 ```lisp
     (load "/path-to/visual-cells.lisp") ; Change "/path-to/" to your directory.
 ```
-Add following lines to your emacs startup file.(eg. ~/.emacs)
+Add following lines to your emacs startup file.(eg. ~/.emacs)<br>
+
 ```lisp
 ;; function to call by emacs
 (defun visual-exp ()
@@ -43,8 +44,7 @@ Add following lines to your emacs startup file.(eg. ~/.emacs)
 ```
 Start your Emacs and  run slime, Open a lisp file in 'slime-mode'.<br>
 Move the point to end of a s-expresion, press "Ctrl+C V", the graphical display of the s-expression  will open  in Eamcs .<br>
-
-![slime-screen](https://raw.githubusercontent.com/cuichaox/visual-cells/demo/slime-screenshot.jpg "slime-screen")
+![slime-screenshot.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/slime-screenshot.png)
 
 To do
 ===
