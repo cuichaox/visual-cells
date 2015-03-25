@@ -44,7 +44,7 @@ Add following lines to your emacs startup file.(eg. ~/.emacs)
 Start your Emacs and  run slime, Open a lisp file in 'slime-mode'.<br>
 Move the point to end of a s-expresion, press "Ctrl+C V", the graphical display of the s-expression  will open  in Eamcs .<br>
 
-![slime-screen](https://raw.githubusercontent.com/cuichaox/visual-cells/ad37f7656be4544b69d6eb19868df7e5f6a84129/demo/slime-screenshot.jpg "slime-screen")
+![slime-screen](https://raw.githubusercontent.com/cuichaox/visual-cells/demo/slime-screenshot.jpg "slime-screen")
 
 To do
 ===
