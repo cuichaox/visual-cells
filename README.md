@@ -10,7 +10,7 @@ Load 'visual-cells.lisp' to your lisp image. For example :
 ```
 To display  the  alist : ((a . 1) (b . 2) (c . 3)) to the 'alist.pdf' and 'alist.png'
 ```lisp
-  (visual-cells:fvs '((a . 1) (b . 2) (c . 3)) "test")
+  (visual-cells:fvs '((a . 1) (b . 2) (c . 3)) "alist")
 ```
 The alist.png as floowing<br>
 ![alist.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/alist.png)
