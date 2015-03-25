@@ -3,12 +3,12 @@ Display Lisp S-exp as tree of cons cells in a cario surface(pdf+png).
 
 Quick Guide
 ===
-;Download File 'src/visual-cells.lisp' in this repository. put it in current directory.<br>
-;Load 'visual-cells.lisp' to your lisp image. For example : <br>
+Download File 'src/visual-cells.lisp' in this repository. put it in current directory.<br>
+Load 'visual-cells.lisp' to your lisp image. For example : 
 ```lisp
   (load "visual-cells.lisp")
 ```
-To display  the  alist : ((a . 1) (b . 2) (c . 3)) to the 'alist.pdf' and 'alist.png'<br>
+To display  the  alist : ((a . 1) (b . 2) (c . 3)) to the 'alist.pdf' and 'alist.png'
 ```lisp
   (visual-cells:fvs '((a . 1) (b . 2) (c . 3)) "test")
 ```
@@ -17,11 +17,11 @@ The alist.png as floowing<br>
 
 Call visual-cells in Slime
 ===
-Add following line to your common lisp startup script. (eg: ~/.sbclrc)<br>
+Add following line to your common lisp startup script. (eg. ~/.sbclrc)
 ```lisp
     (load "/path-to/visual-cells.lisp") ; Change "/path-to/" to your directory.
 ```
-Add following lines to your emacs startup file.(eg: ~/.emacs)<br>
+Add following lines to your emacs startup file.(eg. ~/.emacs)
 ```lisp
 ;; function to call by emacs
 (defun visual-exp ()
@@ -44,8 +44,8 @@ Add following lines to your emacs startup file.(eg: ~/.emacs)<br>
 Start your Emacs and  run slime, Open a lisp file in 'slime-mode'.<br>
 Move the point to end of a s-expresion, press "Ctrl+C V", the graphical display of the s-expression  will open  in Eamcs .<br>
 
-[slime-screen](https://raw.githubusercontent.com/cuichaox/visual-cells/ad37f7656be4544b69d6eb19868df7e5f6a84129/demo/slime-screenshot.jpg "slime-screen")
+![slime-screen](https://raw.githubusercontent.com/cuichaox/visual-cells/ad37f7656be4544b69d6eb19868df7e5f6a84129/demo/slime-screenshot.jpg "slime-screen")
 
 To do
 ===
-Specific  topology and sttyle  for more Lisp data type, such as Hash, Alist, Plist etc.
+Specific topology and style  for more Lisp data type, such as Hash, Alist, Plist etc.
