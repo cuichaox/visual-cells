@@ -7,12 +7,9 @@ Download File 'src/visual-cells.lisp' in this repository. put it in current dire
 Load 'visual-cells.lisp' to your lisp image. For example : 
 ```lisp
   (load "visual-cells.lisp")
-```
-To display  the  alist : ((a . 1) (b . 2) (c . 3)) to the 'alist.pdf' and 'alist.png'
-```lisp
   (visual-cells:fvs '((a . 1) (b . 2) (c . 3)) "alist")
 ```
-The alist.png as floowing<br>
+alist.png<br>
 ![alist.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/alist.png)
 
 Call visual-cells in Slime
@@ -42,10 +39,10 @@ Add following lines to your emacs startup file.(eg. ~/.emacs)<br>
 	  '(lambda ()
 	     (define-key slime-mode-map "\C-cv" 'visual-exp)))
 ```
-Start your Emacs and  run slime, Open a lisp file in 'slime-mode'.<br>
+Start your Emacs and  run slime, Open a lisp file.<br>
 Move the point to end of a s-expresion, press "Ctrl+C V", the graphical display of the s-expression  will open  in Eamcs .<br>
 ![slime-screenshot.png](https://raw.githubusercontent.com/cuichaox/visual-cells/master/demo/slime-screenshot.png)
 
-To do
+Todo
 ===
 Specific topology and style  for more Lisp data type, such as Hash, Alist, Plist etc.
