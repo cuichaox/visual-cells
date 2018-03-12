@@ -1,21 +1,16 @@
 ;; visual-cells.lisp
-;; package
-(require :cl-cairo2)
-(defpackage :visual-cells
-  (:use :common-lisp :cl-cairo2)
-  (:export :fvs))
 (in-package :visual-cells)
 
 ;;tool maccro to ignore stle warning of cffi
 (defun ignore-warning (condition)
    (declare (ignore condition))
    (muffle-warning))
-(defmacro igw (&rest forms)  
+(defmacro igw (&rest forms)
   `(handler-bind ((warning #'ignore-warning))
      ,@forms))
 
 ;; draw functions
-(defun draw-text-node(x y name &key label )  
+(defun draw-text-node(x y name &key label )
   (let* ((n-exts (igw (get-text-extents name)))
 	 (n-width (text-width n-exts))
 	 (n-height (text-height n-exts))
@@ -24,7 +19,7 @@
 	 (n-radius (/ (sqrt (+ (expt n-width 2) (expt n-height 2))) 1.8)))
     (move-to (- x n-x-offset) (- y n-y-offset))
     (show-text name)
-    
+
     (new-path)
     (arc x y n-radius 0 (* 2.0 PI))
     (save)
@@ -33,14 +28,14 @@
     (restore)
     (when label
       (save)
-      (set-font-size  (/ (trans-matrix-xx (igw (get-font-matrix))) 2))      
+      (set-font-size  (/ (trans-matrix-xx (igw (get-font-matrix))) 2))
       (let* ((l-exts (igw (get-text-extents label)))
 	     (l-width (text-width l-exts))
 	     (l-x-offset (+ (text-x-bearing l-exts) (/ l-width 2)))
 	     (l-y-offset (- (text-y-bearing l-exts) (* 7/5 n-radius))))
 	(move-to (- x l-x-offset) (- y l-y-offset))
 	(show-text label))
-      (restore))    
+      (restore))
     n-radius))
 
 (defun draw-atom (x y obj)
@@ -58,7 +53,7 @@
     (draw-text-node x y name :label label)))
 
 ;;radius of Current Font
-(defun get-font-radius () 
+(defun get-font-radius ()
   (let* ((fm (igw (get-font-matrix)))
 	 (xx (trans-matrix-xx fm))
 	 (yy (trans-matrix-yy fm)))
@@ -75,14 +70,14 @@
     (restore)
     (let ((h-radius (/ radius 2)))
       (arc-negative (+ x h-radius) y h-radius 0 PI)
-      (arc (- x h-radius) y h-radius 0 PI))    
-    (stroke)    
+      (arc (- x h-radius) y h-radius 0 PI))
+    (stroke)
     (arc (- x (/ radius 2)) y (/ radius 8) 0 (* 2 PI))
     (close-path)
     (fill-path)
     (arc (+ x (/ radius 2)) y (/ radius 8) 0 (* 2 PI))
     (close-path)
-    (fill-path)    
+    (fill-path)
   radius))
 
 ;;angle of vector
@@ -146,7 +141,7 @@
 ;;draw cons
 (defun draw-cons (x y obj hgap vgap)
   (if (atom obj)
-      (draw-atom x y obj)      
+      (draw-atom x y obj)
       (let* ((p-radius (draw-cons-node x y))
 	     (p-left-x (- x (/ p-radius 2)))
 	     (p-right-x (+ x (/ p-radius 2)))
@@ -185,7 +180,7 @@
 	 (surface (create-pdf-surface (concatenate 'string fname ".pdf")
 				      width
 				      height))
-	 (*context* (create-context surface)))   
+	 (*context* (create-context surface)))
     (set-font-size font-size)
     (set-line-width line-width)
     (set-source-rgb 0.0 0.0 0.0)
@@ -195,5 +190,3 @@
     (surface-write-to-png surface (concatenate 'string fname ".png"))
     (destroy surface)
     (destroy *context*)))
-
-
